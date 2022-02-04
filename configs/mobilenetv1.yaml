@@ -1,0 +1,34 @@
+# config to get 90.23% sparse ResNet50 on ImageNet. Modify this file to get other sparse models.
+# Architecture
+arch: MobileNetV1
+
+# ===== Dataset ===== #
+data: /media/DATA/ImageNet
+set: ImageNet
+name: Mask
+
+# ===== Learning Rate Policy ======== #
+optimizer: sgd
+lr: 0.05
+lr_policy: cosine_lr
+warmup_length: 5
+
+# ===== Network training config ===== #
+epochs: 180
+weight_decay: 0.00004 # Change this according to reported numbers in appendix
+momentum: 0.9
+batch_size: 256
+label_smoothing: 0.1
+mask_lr: 0.1
+
+# ===== Sparsity =========== #
+conv_type: MySparseConv
+prune_rate: 0.9
+bn_type: LearnedBatchNorm
+init: kaiming_normal
+mode: fan_in
+nonlinearity: relu
+beta: 1
+
+# ===== Hardware setup ===== #
+workers: 20
