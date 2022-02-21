@@ -10,7 +10,7 @@
 
 Select a configuration file in `configs` to reproduce the experiment results reported in the paper. For example, to prune ResNet-50 on ImageNet dataset, run:
 
-   `python imagenet.py --config configs/resnet50_imagenet/90sparsity30epoch.yaml --gpus 0`
+   `python imagenet.py --config configs/resnet50.yaml --gpus 0`
 
    Note that the `data_path` and `prune_rate` in the yaml file should be changed to the data path and your target sparse rate. 
 
