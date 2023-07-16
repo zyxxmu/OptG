@@ -18,7 +18,7 @@ Evaluate Our Sparse Models
 
 Our sparse models and training logs can be downloaded from the links in the following table. To test them, run:
 
-`python imagenet.py --config configs/resnet50_imagenet/90sparsity30epoch.yaml --evaluate --evaluate_model_link <the sparse model link> --gpus 0`
+`python imagenet.py --config configs/resnet50_imagenet/90sparsity30epoch.yaml --evaluate --evaluate_model_link <the sparse model link> --gpu 0 --multigpu 0`
 
 | Model        | Sparsity | FLOPs | Top-1 Acc. | Link                                                         |
 | ------------ | -------- | ----- | ---------- | ------------------------------------------------------------ |
