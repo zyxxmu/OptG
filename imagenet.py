@@ -106,8 +106,9 @@ def main_worker(args):
 
     # Evaulation of a model
     if args.evaluate:
-        checkpoint = torch.load(args.evaluate_model_link)
-        model.load_state_dict(checkpoint["state_dict"])        
+        checkpoint = torch.load(args.evaluate_model_link)  
+        model.load_state_dict(checkpoint["state_dict"], strict=False)      
+        set_model(model, args.prune_rate)  
         acc1, acc5 = validate(
             data.val_loader, model, criterion, args, logger, epoch=args.start_epoch
         )
